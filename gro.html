@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Grocery Store</title>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+    }
+
+    header {
+        background-color: #333;
+        padding: 1rem;
+    }
+
+    nav ul {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+    }
+
+    nav ul li {
+        margin: 0 15px;
+    }
+
+    nav ul li a {
+        color: white;
+        text-decoration: none;
+    }
+
+    .hero {
+        background: url('grocery-hero.jpg') no-repeat center center;
+        background-size: cover;
+        color: white;
+        text-align: center;
+        padding: 50px 0;
+    }
+
+    .products {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        padding: 20px;
+    }
+
+    .product-card {
+        background-color:gray;
+        padding: 20px;
+        width: 200px;
+        text-align: center;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin: 10px;
+    }
+
+    .product-card img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+    }
+
+    button {
+        background-color: #333;
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #555;
+    }
+
+    footer {
+        background-color: #333;
+        color: gray;
+        text-align: center;
+        padding: 10px;
+        position: fixed;
+        width: 100%;
+        bottom: 0;
+    }
+    
+
+    .comment-box {
+        width: 100%;
+        height: 150px;
+        padding: 10px;
+        margin-top: 20px;
+        border-radius: 5px;
+        border: 1px solid purple;
+        white-space: pre-line;
+    }
+
+    .quantity-select {
+        margin-top: 10px;
+        padding: 5px;
+    }
+    #submitBtn {
+        background-color: #333;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 20px; /* Adds space above the button */
+        display: block;
+        width: 100%; /* Makes the button full width */
+    }
+
+    #submitBtn:hover {
+        background-color: #555;
+    }
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Cart</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Welcome to Our Grocery Store</h1>
+            <p>Your one-stop shop for fresh groceries!</p>
+        </section>
+
+        <section class="products">
+            <h2>welcome to yash store</h2>
+
+            <!-- Example Products with English and Telugu Names -->
+            <div class="product-card">
+                <img src="almonds.jpg" alt="Almonds">
+                <h3>Almonds (బాదం)</h3>
+                <p>₹599 per kg</p>
+                <select class="quantity-select" data-name="Almonds" data-price="599">
+                    <option value="0.25">1/4 kg</option>
+                    <option value="0.5">1/2 kg</option>
+                    <option value="1">1 kg</option>
+                    <option value="2">2 kg</option>
+                    <option value="3">3 kg</option>
+                </select>
+                <button>Add to Cart</button>
+            </div>
+
+            <div class="product-card">
+                <img src="Basmathi.jpg" alt="Basmati Rice">
+                <h3>Basmati Rice (బాస్మతి అన్నం)</h3>
+                <p>₹249 per kg</p>
+                <select class="quantity-select" data-name="Basmati Rice" data-price="249">
+                    <option value="0.25">1/4 kg</option>
+                    <option value="0.5">1/2 kg</option>
+                    <option value="1">1 kg</option>
+                    <option value="2">2 kg</option>
+                    <option value="3">3 kg</option>
+                </select>
+                <button>Add to Cart</button>
+            </div>
+
+            <div class="product-card">
+                <img src="idli_batter.jpg" alt="Idli/Dosa Batter">
+                <h3>Idli/Dosa Batter (ఇడ్లీ/దోసా పట్టి)</h3>
+                <p>₹299 per pack</p>
+                <select class="quantity-select" data-name="Idli/Dosa Batter" data-price="299">
+                    <option value="1">1 pack</option>
+                    <option value="2">2 packs</option>
+                    <option value="3">3 packs</option>
+                </select>
+                <button>Add to Cart</button>
+            </div>
+
+            <div class="product-card">
+                <img src="sambar_powder.jpg" alt="Sambar Powder">
+                <h3>Sambar Powder (సాంబార్ పౌడర్)</h3>
+                <p>₹10 per pack</p>
+                <select class="quantity-select" data-name="Sambar Powder" data-price="199">
+                    <option value="1">1 pack</option>
+                    <option value="2">2 packs</option>
+                </select>
+                <button>Add to Cart</button>
+            </div>
+            <div class="product-card">
+                <img src="basmati_rice.jpg" alt="Basmati Rice">
+                <h3>Basmati Rice (బాస్మతి రైస్)</h3>
+                <p>₹100 per kg</p>
+                <select class="quantity-select" data-name="Rice" data-price="100">
+                    <option value="1">1 kg</option>
+                    <option value="2">2 kg</option>
+                </select>
+                <button>Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <img src="sona_masoori_rice.jpg" alt="Sona Masoori Rice">
+                <h3>Sona Masoori Rice (సోనా మసూరి రైస్)</h3>
+                <p>₹80 per kg</p>
+                <select class="quantity-select" data-name="Sona Masoori Rice" data-price="80">
+                    <option value="1">1 kg</option>
+                    <option value="2">2 kg</option>
+                </select>
+                <button>Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <img src="ponni_rice.jpg" alt="Ponni Rice">
+                <h3>Ponni Rice (పొన్ని రైస్)</h3>
+                <p>₹90 per kg</p>
+                <select class="quantity-select" data-name="Ponni Rice" data-price="90">
+                    <option value="1">1 kg</option>
+                    <option value="2">2 kg</option>
+                </select>
+                <button>Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <img src="rice_flour.jpg" alt="Rice Flour">
+                <h3>Rice Flour (అరిసి పిండి)</h3>
+                <p>₹50 per kg</p>
+                <select class="quantity-select" data-name="Rice Flour" data-price="50">
+                    <option value="1">1 kg</option>
+                    <option value="2">2 kg</option>
+                </select>
+                <button>Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <img src="rava.jpg" alt="Rava (Semolina)">
+                <h3>Rava (Semolina) (రావా)</h3>
+                <p>₹40 per kg</p>
+                <select class="quantity-select" data-name="Rava" data-price="40">
+                    <option value="1">1 kg</option>
+                    <option value="2">2 kg</option>
+                </select>
+                <button>Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <img src="wheat_flour.jpg" alt="Wheat Flour">
+                <h3>Wheat Flour (గోధుమ పిండి)</h3>
+                <p>₹55 per kg</p>
+                <select class="quantity-select" data-name="Wheat Flour" data-price="55">
+                    <option value="1">1 kg</option>
+                    <option value="2">2 kg</option>
+                </select>
+                <button>Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <img src="jowar_flour.jpg" alt="Jowar Flour (Sorghum)">
+                <h3>Jowar Flour (Sorghum) (జొవార్ పిండి)</h3>
+                <p>₹60 per kg</p>
+                <select class="quantity-select" data-name="Jowar Flour" data-price="60">
+                    <option value="1">1 kg</option>
+                    <option value="2">2 kg</option>
+                </select>
+                <button>Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <img src="ural_dal.jpg" alt="Ural Dal (Black Gram Dal)">
+                <h3>Ural Dal (Black Gram Dal) (ఉరల్ డాల్)</h3>
+                <p>₹120 per kg</p>
+                <select class="quantity-select" data-name="Ural Dal" data-price="120">
+                    <option value="1">1 kg</option>
+                    <option value="2">2 kg</option>
+                </select>
+                <button>Add to Cart</button>
+            </div>
+            
+            
+            
+            <div class="product-card">
+                <img src="moong_dal.jpg" alt="Moong Dal (Green Gram)">
+                <h3>Moong Dal (Green Gram) (మూలంగ్ డాల్)</h3>
+                <p>₹100 per kg</p>
+                <select class="quantity-select" data-name="Moong Dal" data-price="100">
+                    <option value="1">1 kg</option>
+                    <option value="2">2 kg</option>
+                </select>
+                <button>Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <img src="masoor_dal.jpg" alt="Masoor Dal (Red Lentils)">
+                <h3>Masoor Dal (Red Lentils) (మసూర్ డాల్)</h3>
+                <p>₹90 per kg</p>
+                <select class="quantity-select" data-name="Masoor Dal" data-price="90">
+                    <option value="1">1 kg</option>
+                    <option value="2">2 kg</option>
+                </select>
+                <button>Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <img src="chana_dal.jpg" alt="Chana Dal (Bengal Gram)">
+                <h3>Chana Dal (Bengal Gram) (చానా డాల్)</h3>
+                <p>₹95 per kg</p>
+                <select class="quantity-select" data-name="Chana Dal" data-price="95">
+                    <option value="1">1 kg</option>
+                    <option value="2">2 kg</option>
+                </select>
+                <button>Add to Cart</button>
+            </div>
+            <div class="product-card">
+                <img src="sambar_powder.jpg" alt="Sambar Powder">
+                <h3>Sambar Powder (సాంబార్ పౌడర్)</h3>
+                <p>₹199 per pack</p>
+                <select class="quantity-select" data-name="Sambar Powder" data-price="199">
+                    <option value="1">1 pack</option>
+                    <option value="2">2 packs</option>
+                </select>
+                <button>Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <img src="rasam_powder.jpg" alt="Rasam Powder">
+                <h3>Rasam Powder (రసం పౌడర్)</h3>
+                <p>₹150 per pack</p>
+                <select class="quantity-select" data-name="Rasam Powder" data-price="150">
+                    <option value="1">1 pack</option>
+                    <option value="2">2 packs</option>
+                </select>
+                <button>Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <img src="curry_powder.jpg" alt="Curry Powder">
+                <h3>Curry Powder (కర్రీ పౌడర్)</h3>
+                <p>₹120 per pack</p>
+                <select class="quantity-select" data-name="Curry Powder" data-price="120">
+                    <option value="1">1 pack</option>
+                    <option value="2">2 packs</option>
+                </select>
+                <button>Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <img src="turmeric_powder.jpg" alt="Turmeric Powder">
+                <h3>Turmeric Powder (కుమ్మిన పౌడర్)</h3>
+                <p>₹50 per pack</p>
+                <select class="quantity-select" data-name="Turmeric Powder" data-price="50">
+                    <option value="1">1 pack</option>
+                    <option value="2">2 packs</option>
+                </select>
+                <button>Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <img src="red_chili_powder.jpg" alt="Red Chili Powder">
+                <h3>Red Chili Powder (ఎర్ర మిర్చి పౌడర్)</h3>
+                <p>₹80 per pack</p>
+                <select class="quantity-select" data-name="Red Chili Powder" data-price="80">
+                    <option value="1">1 pack</option>
+                    <option value="2">2 packs</option>
+                </select>
+                <button>Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <img src="coriander_powder.jpg" alt="Coriander Powder">
+                <h3>Coriander Powder (కొత్తిమీర పౌడర్)</h3>
+                <p>₹70 per pack</p>
+                <select class="quantity-select" data-name="Coriander Powder" data-price="70">
+                    <option value="1">1 pack</option>
+                    <option value="2">2 packs</option>
+                </select>
+                <button>Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <img src="cumin_seeds.jpg" alt="Cumin Seeds">
+                <h3>Cumin Seeds (జీలకర్ర)</h3>
+                <p>₹60 per pack</p>
+                <select class="quantity-select" data-name="Cumin Seeds" data-price="60">
+                    <option value="1">1 pack</option>
+                    <option value="2">2 packs</option>
+                </select>
+                <button>Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <img src="mustard_seeds.jpg" alt="Mustard Seeds">
+                <h3>Mustard Seeds (ఆవాలు)</h3>
+                <p>₹55 per pack</p>
+                <select class="quantity-select" data-name="Mustard Seeds" data-price="55">
+                    <option value="1">1 pack</option>
+                    <option value="2">2 packs</option>
+                </select>
+                <button>Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <img src="fenugreek_seeds.jpg" alt="Fenugreek Seeds">
+                <h3>Fenugreek Seeds (మెంతి కాయలు)</h3>
+                <p>₹40 per pack</p>
+                <select class="quantity-select" data-name="Fenugreek Seeds" data-price="40">
+                    <option value="1">1 pack</option>
+                    <option value="2">2 packs</option>
+                </select>
+                <button>Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <img src="fennel_seeds.jpg" alt="Fennel Seeds">
+                <h3>Fennel Seeds (సోంపు)</h3>
+                <p>₹45 per pack</p>
+                <select class="quantity-select" data-name="Fennel Seeds" data-price="45">
+                    <option value="1">1 pack</option>
+                    <option value="2">2 packs</option>
+                </select>
+                <button>Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <img src="cardamom.jpg" alt="Cardamom">
+                <h3>Cardamom (ఎలకే)</h3>
+                <p>₹200 per pack</p>
+                <select class="quantity-select" data-name="Cardamom" data-price="200">
+                    <option value="1">1 pack</option>
+                    <option value="2">2 packs</option>
+                </select>
+                <button>Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <img src="cloves.jpg" alt="Cloves">
+                <h3>Cloves (లవంగాలు)</h3>
+                <p>₹180 per pack</p>
+                <select class="quantity-select" data-name="Cloves" data-price="180">
+                    <option value="1">1 pack</option>
+                    <option value="2">2 packs</option>
+                </select>
+                <button>Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <img src="cinnamon.jpg" alt="Cinnamon">
+                <h3>Cinnamon (దాలచినా)</h3>
+                <p>₹150 per pack</p>
+                <select class="quantity-select" data-name="Cinnamon" data-price="150">
+                    <option value="1">1 pack</option>
+                    <option value="2">2 packs</option>
+                </select>
+                <button>Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <img src="bay_leaves.jpg" alt="Bay Leaves">
+                <h3>Bay Leaves (బే లీవ్స్)</h3>
+                <p>₹60 per pack</p>
+                <select class="quantity-select" data-name="Bay Leaves" data-price="60">
+                    <option value="1">1 pack</option>
+                    <option value="2">2 packs</option>
+                </select>
+                <button>Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <img src="asafoetida.jpg" alt="Asafoetida (Hing)">
+                <h3>Asafoetida (Hing) (హింగు)</h3>
+                <p>₹50 per pack</p>
+                <select class="quantity-select" data-name="Asafoetida" data-price="50">
+                    <option value="1">1 pack</option>
+                    <option value="2">2 packs</option>
+                </select>
+                <button>Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <img src="coconut_oil.jpg" alt="Coconut Oil">
+                <h3>Coconut Oil (కొబ్బరి నూనె)</h3>
+                <p>₹180 per litre</p>
+                <select class="quantity-select" data-name="Coconut Oil" data-price="180">
+                    <option value="1">1 litre</option>
+                    <option value="2">2 litres</option>
+                </select>
+                <button>Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <img src="sesame_oil.jpg" alt="Sesame Oil (Nalla Enna)">
+                <h3>Sesame Oil (Nalla Enna) (నల్ల ఎన్న)</h3>
+                <p>₹220 per litre</p>
+                <select class="quantity-select" data-name="Sesame Oil" data-price="220">
+                    <option value="1">1 litre</option>
+                    <option value="2">2 litres</option>
+                </select>
+                <button>Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <img src="ghee.jpg" alt="Ghee (Clarified Butter)">
+                <h3>Ghee (Clarified Butter) (నెయ్యి)</h3>
+                <p>₹350 per kg</p>
+                <select class="quantity-select" data-name="Ghee" data-price="350">
+                    <option value="1">1 kg</option>
+                    <option value="2">2 kg</option>
+                </select>
+                <button>Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <img src="coconut_milk.jpg" alt="Coconut Milk">
+                <h3>Coconut Milk (కొబ్బరి పాలు)</h3>
+                <p>₹120 per pack</p>
+                <select class="quantity-select" data-name="Coconut Milk" data-price="120">
+                    <option value="1">1 pack</option>
+                    <option value="2">2 packs</option>
+                </select>
+                <button>Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <img src="brown_sugar.jpg" alt="Brown Sugar">
+                <h3>Brown Sugar (బ్రౌన్ చక్కెర)</h3>
+                <p>₹120 per kg</p>
+                <select class="quantity-select" data-name="Brown Sugar" data-price="120">
+                    <option value="1">1 kg</option>
+                    <option value="2">2 kg</option>
+                </select>
+                <button>Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <img src="jaggery.jpg" alt="Jaggery">
+                <h3>Jaggery (నెల్లి పాకు)</h3>
+                <p>₹60 per kg</p>
+                <select class="quantity-select" data-name="Jaggery" data-price="60">
+                    <option value="1">1 kg</option>
+                    <option value="2">2 kg</option>
+                </select>
+                <button>Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <img src="cardamom_powder.jpg" alt="Cardamom Powder">
+                <h3>Cardamom Powder (ఎలకే పౌడర్)</h3>
+                <p>₹150 per pack</p>
+                <select class="quantity-select" data-name="Cardamom Powder" data-price="150">
+                    <option value="1">1 pack</option>
+                    <option value="2">2 packs</option>
+                </select>
+                <button>Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <img src="peanuts.jpg" alt="Peanuts">
+                <h3>Peanuts (కరివేపాకులు)</h3>
+                <p>₹70 per pack</p>
+                <select class="quantity-select" data-name="Peanuts" data-price="70">
+                    <option value="1">1 pack</option>
+                    <option value="2">2 packs</option>
+                </select>
+                <button>Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <img src="almonds.jpg" alt="Almonds">
+                <h3>Almonds (బాదం)</h3>
+                <p>₹300 per pack</p>
+                <select class="quantity-select" data-name="Almonds" data-price="300">
+                    <option value="1">1 pack</option>
+                    <option value="2">2 packs</option>
+                </select>
+                <button>Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <img src="cashews.jpg" alt="Cashews">
+                <h3>Cashews (కష్యులు)</h3>
+                <p>₹350 per pack</p>
+                <select class="quantity-select" data-name="Cashews" data-price="350">
+                    <option value="1">1 pack</option>
+                    <option value="2">2 packs</option>
+                </select>
+                <button>Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <img src="raisins.jpg" alt="Raisins">
+                <h3>Raisins (కిష్మిష్)</h3>
+                <p>₹120 per pack</p>
+                <select class="quantity-select" data-name="Raisins" data-price="120">
+                    <option value="1">1 pack</option>
+                    <option value="2">2 packs</option>
+                </select>
+                <button>Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <img src="dates.jpg" alt="Dates">
+                <h3>Dates (ఖర్జూరం)</h3>
+                <p>₹150 per pack</p>
+                <select class="quantity-select" data-name="Dates" data-price="150">
+                    <option value="1">1 pack</option>
+                    <option value="2">2 packs</option>
+                </select>
+                <button>Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <img src="figs.jpg" alt="Figs">
+                <h3>Figs (అంజిరా)</h3>
+                <p>₹180 per pack</p>
+                <select class="quantity-select" data-name="Figs" data-price="180">
+                    <option value="1">1 pack</option>
+                    <option value="2">2 packs</option>
+                </select>
+                <button>Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <img src="walnuts.jpg" alt="Walnuts">
+                <h3>Walnuts (అక్రోన్స్)</h3>
+                <p>₹400 per pack</p>
+                <select class="quantity-select" data-name="Walnuts" data-price="400">
+                    <option value="1">1 pack</option>
+                    <option value="2">2 packs</option>
+                </select>
+                <button>Add to Cart</button>
+            </div>
+            <div class="product-card">
+                <img src="garam_masala.jpg" alt="Garam Masala">
+                <h3>Garam Masala (గరం మసాలా)</h3>
+                <p>₹150 per pack</p>
+                <select class="quantity-select" data-name="Garam Masala" data-price="150">
+                    <option value="1">1 pack</option>
+                    <option value="2">2 packs</option>
+                </select>
+                <button>Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <img src="peanut_oil.jpg" alt="Peanut Oil">
+                <h3>Peanut Oil (పెన్నా నూనె)</h3>
+                <p>₹180 per litre</p>
+                <select class="quantity-select" data-name="Peanut Oil" data-price="180">
+                    <option value="1">1 litre</option>
+                    <option value="2">2 litres</option>
+                </select>
+                <button>Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <img src="chili_flakes.jpg" alt="Chili Flakes">
+                <h3>Chili Flakes (మిర్చి గింజలు)</h3>
+                <p>₹90 per pack</p>
+                <select class="quantity-select" data-name="Chili Flakes" data-price="90">
+                    <option value="1">1 pack</option>
+                    <option value="2">2 packs</option>
+                </select>
+                <button>Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <img src="dates.jpg" alt="Dates">
+                <h3>Dates (ఖర్జూరం)</h3>
+                <p>₹200 per kg</p>
+                <select class="quantity-select" data-name="Dates" data-price="200">
+                    <option value="1">1 kg</option>
+                    <option value="2">2 kg</option>
+                </select>
+                <button>Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <img src="almonds.jpg" alt="Almonds">
+                <h3>Almonds (బాదం)</h3>
+                <p>₹350 per kg</p>
+                <select class="quantity-select" data-name="Almonds" data-price="350">
+                    <option value="1">1 kg</option>
+                    <option value="2">2 kg</option>
+                </select>
+                <button>Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <img src="cashews.jpg" alt="Cashews">
+                <h3>Cashews (కజూ)</h3>
+                <p>₹400 per kg</p>
+                <select class="quantity-select" data-name="Cashews" data-price="400">
+                    <option value="1">1 kg</option>
+                    <option value="2">2 kg</option>
+                </select>
+                <button>Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <img src="raisins.jpg" alt="Raisins">
+                <h3>Raisins (కిష్మిష్)</h3>
+                <p>₹180 per kg</p>
+                <select class="quantity-select" data-name="Raisins" data-price="180">
+                    <option value="1">1 kg</option>
+                    <option value="2">2 kg</option>
+                </select>
+                <button>Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <img src="peanuts.jpg" alt="Peanuts">
+                <h3>Peanuts (భోజనం పప్పులు)</h3>
+                <p>₹80 per kg</p>
+                <select class="quantity-select" data-name="Peanuts" data-price="80">
+                    <option value="1">1 kg</option>
+                    <option value="2">2 kg</option>
+                </select>
+                <button>Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <img src="pumpkin_seeds.jpg" alt="Pumpkin Seeds">
+                <h3>Pumpkin Seeds (పెద్ద కూరగాయలు బీజాలు)</h3>
+                <p>₹150 per pack</p>
+                <select class="quantity-select" data-name="Pumpkin Seeds" data-price="150">
+                    <option value="1">1 pack</option>
+                    <option value="2">2 packs</option>
+                </select>
+                <button>Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <img src="sunflower_seeds.jpg" alt="Sunflower Seeds">
+                <h3>Sunflower Seeds (సూర్యఫూలు బీజాలు)</h3>
+                <p>₹120 per pack</p>
+                <select class="quantity-select" data-name="Sunflower Seeds" data-price="120">
+                    <option value="1">1 pack</option>
+                    <option value="2">2 packs</option>
+                </select>
+                <button>Add to Cart</button>
+            </div>
+                        
+
+        </section>
+        <textarea class="comment-box" id="commentBox" placeholder="Your selected items will appear here..."></textarea>
+
+        <button id="submitBtn">Submit</button>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Online Grocery Store. All Rights Reserved.</p>
+    </footer>
+
+        
+        <p>&copy; 2024 Online Grocery Store. All Rights Reserved.</p>
+    </footer>
+    <script>
+        let cart = [];
+        
+        // Function to add items to the cart
+        function addToCart(productName, price, quantity) {
+            let totalPrice = price * quantity;
+            cart.push({ name: productName, price: price, quantity: quantity, totalPrice: totalPrice });
+            console.log('Cart after adding item:', cart);  // Debugging: Check the cart content
+            updateCommentBox();
+        }
+        
+        // Function to update the comment box with cart details
+        function updateCommentBox() {
+            const commentBox = document.getElementById('commentBox');
+            let content = '';
+            let totalCost = 0;
+        
+            cart.forEach(item => {
+                content += `${item.name} (x${item.quantity} kg) - ₹${item.totalPrice.toFixed(2)}\n`;
+                totalCost += item.totalPrice;
+            });
+        
+            content += `\nTotal Cost: ₹${totalCost.toFixed(2)}`;
+            commentBox.value = content;
+        }
+        
+        // Adding event listeners to all product cards
+        const buttons = document.querySelectorAll('.product-card button');
+        buttons.forEach(button => {
+            button.addEventListener('click', (event) => {
+                const productCard = event.target.closest('.product-card');
+                const productName = productCard.querySelector('h3').textContent.split('(')[0].trim();
+                const price = parseFloat(productCard.querySelector('p').textContent.replace('₹', '').replace(' per kg', '').replace(' per pack', ''));
+                const quantitySelect = productCard.querySelector('.quantity-select');
+                const quantity = parseFloat(quantitySelect.value);
+        
+                addToCart(productName, price, quantity);
+            });
+        });
+        
+        // Event listener for the submit button
+        document.getElementById('submitBtn').addEventListener('click', function() {
+            if (cart.length === 0) {
+                alert('No items in the cart.');
+                return;
+            }
+        
+            const selectedItems = cart.map(item => `${item.name} (x${item.quantity} kg) - ₹${item.totalPrice.toFixed(2)}`).join('\n'); // Using newline
+            const totalCost = cart.reduce((total, item) => total + item.totalPrice, 0);
+        
+            // Debugging: Check the final selected items and total cost
+            console.log(`Items: ${selectedItems}`);
+            console.log(`Total Cost: ₹${totalCost.toFixed(2)}`);
+        
+            // Create the WhatsApp message content with line breaks
+            const message = `Items:\n${selectedItems}\n\nTotal Cost: ₹${totalCost.toFixed(2)}`;
+        
+            // Redirect to WhatsApp with the message
+            const whatsappLink = `https://wa.me/7569878181?text=${encodeURIComponent(message)}`;
+            window.open(whatsappLink, '_blank');
+        
+            // Reset cart and update comment box
+            cart = [];
+            updateCommentBox();
+        });
+    </script>
+    
+    
+
+    
+</body>
+</html>
